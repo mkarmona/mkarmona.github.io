@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://mkarmona.space/post/static-website/</loc>
+    <lastmod>2016-11-27</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/tags/dev/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/tags/generator/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/tags/golang/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/tags/hugo/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/post/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/tags/site/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/tags/static/</loc>
+    <lastmod>2016-11-27</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://mkarmona.space/tags/</loc>
+    <lastmod>0001-01-01</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

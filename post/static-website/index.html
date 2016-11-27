@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Website Estática - Miguel Carmona</title>
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/github.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>
+     hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body lang="en">
+      <div class="container">
+
+
+
+	<div class="row">
+		<div class="twelve columns" style="margin-top: 10%;">
+					<h1 class="page-header">Website Estática <small>&#8776; 3 mins</small></h1>
+					<h2>Una nueva website estática</h2>
+					
+
+<p>Es cierto que otras herramientas permiten montar una website en un tiempo mínimo y <em>medido en clicks</em>, pero yo he optado por usar un <a href="http://gohugo.io">generador de sitios estáticos</a>. El hecho que haya elegido <a href="http://github.com/spf13/hugo">Hugo</a> y no otro, entre <a href="https://iwantmyname.com/blog/2014/05/the-updated-big-list-of-static-website-generators-for-your-site-blog-or-wiki.html">decenas de posibles opciones</a>, viene condicionado principalmente por 3 factores</p>
+
+<ol>
+<li>seguridad,</li>
+<li>tiempo de respuesta y,</li>
+<li>principio <a href="http://es.wikipedia.org/wiki/Principio_KISS">kiss</a>.</li>
+</ol>
+
+<h2 id="seguridad">Seguridad</h2>
+
+<p>Si bien <a href="http://wordpress.org">WordPress</a> me parece una magnífica plataforma, para algo simple como una <a href="http://linecode30.com">site mas un blog</a> me basta un simple alojamiento para contenido estático, ya que: me ahorro dinero, menos complejo de mantener para mí y no necesito disponer de lo que un hosting conlleva (DB, php/python/&hellip;).</p>
+
+<p>Aunque una de las razones fundamentales es la seguridad. Tener que estar pendiente de actualizar la plataforma y de sus pertinentes <a href="http://www.cvedetails.com/vulnerability-list/vendor_id-2337/product_id-4096/Wordpress-Wordpress.html">fallos</a> para mi propia site se me antoja tedioso; en los <em>hostings</em> mas populares, la opción <a href="https://www.ovh.co.uk/web-hosting/website/">1-click</a> permite que se auto actualicen las versiones generandote cierto trabajo al tener que mantener tus plantillas/plugins al día.</p>
+
+<h2 id="tiempo-de-respuesta">Tiempo de respuesta</h2>
+
+<p>Dejando a un lado javascript, el cual siempre toma parte en el asunto a la hora del renderizado final en el lado del cliente, el hecho de estar servido estaticamente aligera,de facto, las cosas.</p>
+
+<p>En el caso de la necesidad de disponer de tu propio servicio, mi opción sería <a href="https://www.nginx.com/resources/admin-guide/serving-static-content/">NGINX</a> como servidor de contenido estático, aunque bueno, incluso para <a href="https://www.nginx.com/blog/maximizing-python-performance-with-nginx-parti-web-serving-and-caching/">contenido dinámico</a> es una de mis opciones preferidas. Aunque puedes conseguir un efecto similar en diferentes proveedores de hosting usando sus propios sistemas de cache e/o instalando plugins en WordPress.</p>
+
+<h2 id="principio-kiss">Principio kiss</h2>
+
+<blockquote>
+<p>&ldquo;Ahhhhhhh, Migueeeel!!!<br />
+&ldquo;¿Que te pasa ahora Fulanito?&rdquo;<br />
+&ldquo;Mi template hace cosas raras al renderizar&hellip; :(. Yo solo he actualizado wordpress&rdquo;<br />
+&ldquo;Mi lo que tú decir, no entender&hellip;&rdquo;</p>
+</blockquote>
+
+<p>He de reconocer que es algo subjetivo decir que, en mi caso, aplicar <em>kiss</em> es usar un generador de contenido estático. Aunque en última instancia, lo único que quiero es no tener que prestar atención a nada más que escribir nuevo contenido o retocar el diseño de mi página web.</p>
+
+<p>Solo tengo que bajar el código, tanto para desarrollar como para poner en producción y ejecutar un par de comandos</p>
+
+<pre><code class="language-sh">hg clone https://github.com/mkarmona/mkarmona.github.io-src
+cd mkarmona.github.io-src
+rm -Rf public/
+hugo server -v true -D true --verboseLog=true -b localhost -p 9000 --watch &amp;
+</code></pre>
+
+<p>Y ejecutar esto en el caso de generar el contenido para producción</p>
+
+<pre><code class="language-sh">./prod.sh
+</code></pre>
+
+<p>El contenido generado que hay en <code>public</code> es lo único que tengo que subir, mediante ftp o rsync<sup class="footnote-ref" id="fnref:11"><a rel="footnote" href="#fn:11">1</a></sup>, a mi proveedor de hosting.</p>
+
+<h2 id="go">Go</h2>
+
+<p>Aún no cosiderandome un [<em>gopher</em>]<sup class="footnote-ref" id="fnref:5"><a rel="footnote" href="#fn:5">2</a></sup> creo que <strong>Go</strong> es un <em><a href="http://www.investopedia.com/terms/g/game-changer.asp">game changer</a></em>. Existen verdaderas parrafadas sobre las ventajas de usar <a href="https://tour.golang.org/welcome/1">Go</a> en el lado del servidor en lugar de muchas otras alternativas. Posiblemente en algún otro momento escriba detalladamente sobre Go (pros y contras)<sup class="footnote-ref" id="fnref:18"><a rel="footnote" href="#fn:18">3</a></sup>. De todos modos aquí os dejo <a href="http://jordanorelli.com/post/31533769172/why-i-went-from-python-to-go-and-not-node-js">un par</a> de <a href="http://npf.io/2014/10/why-everyone-hates-go/">posts</a> sobre el tema y las palabras de <strong>Rob Pike</strong> de <a href="https://talks.golang.org/2012/splash.article">una charla</a>.</p>
+
+<blockquote>
+<p>Go&rsquo;s purpose is therefore not to do research into programming language design; it is to improve the working environment for its designers and their coworkers. Go is more about software engineering than programming language research.</p>
+</blockquote>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:11">En el supuesto que tu proveedor de hosting permita rsync, podrás ahorrar tiempo y optimizar los ficheros a subir. Especialmente útil para blogs con un elevado número de posts.
+ <a class="footnote-return" href="#fnref:11"><sup>[return]</sup></a></li>
+<li id="fn:5">A los integrantes de la comunidad de usuarios de Go (lenguage de Google creado por Thompson, Rob Pike y Robert Griesemer) se les conoce como <em>gophers</em>.
+ <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
+<li id="fn:18">¡Todavía sin genericos!
+ <a class="footnote-return" href="#fnref:18"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+					<div class="post-footer">By <a rel="author" href="https://plus.google.com//posts" title="Miguel C." target="_blank">Miguel C.</a> &mdash; <time pubdate datetime="2016-11-27" title="2016-11-27">November 27, 2016</time></div>
+					<div class="post-footer">
+						 with <a href="http://mkarmona.space//tags/dev">dev </a><a href="http://mkarmona.space//tags/hugo">hugo </a><a href="http://mkarmona.space//tags/golang">golang </a><a href="http://mkarmona.space//tags/static">static </a><a href="http://mkarmona.space//tags/site">site </a><a href="http://mkarmona.space//tags/generator">generator </a>
+					</div>
+		</div>
+	</div>
+
+	
+
+      <div class="row">
+        <div class="twelve columns">
+          <footer>
+            <p>
+              (c) Miguel Carmona -- mkarmona at gmail dot com
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
